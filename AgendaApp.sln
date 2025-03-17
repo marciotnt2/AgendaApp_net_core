@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AgendaApp.Domain", "AgendaApp.Domain", "{F5E7C2A2-D05A-4DAF-A4D8-EB14C793FD5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaApp.Domain", "AgendaApp.Domain\AgendaApp.Domain.csproj", "{A1F8D56F-0B85-42C5-A3DF-4A0C9CFF2F99}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AgendaApp.Application", "AgendaApp.Application", "{1A45FD52-7965-425B-A96F-76EDB00E53F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaApp.Application", "AgendaApp.Application\AgendaApp.Application.csproj", "{5519BF9A-B7CF-4DE7-B9E1-EB938AA84471}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AgendaApp.Infrastructure", "AgendaApp.Infrastructure", "{5F9124E0-8682-4224-A3BC-5FDDA24BD8D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaApp.Infrastructure", "AgendaApp.Infrastructure\AgendaApp.Infrastructure.csproj", "{8E44C4AD-BAB0-4FDD-A14C-2298ACB8D07B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AgendaApp.CrossCutting", "AgendaApp.CrossCutting", "{C442B34B-F813-419A-8D6C-B6EFA5264FA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaApp.CrossCutting", "AgendaApp.CrossCutting\AgendaApp.CrossCutting.csproj", "{3D648E66-9A8D-4BAF-AFAF-9744B96AE331}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Agenda.API", "Agenda.API", "{F20CCC7E-F718-49AE-A3E2-8A62C5C4C727}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaApp.API", "AgendaApp.API\AgendaApp.API.csproj", "{B9CC15EE-DC87-4627-AF15-5ADC6C35E340}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1F8D56F-0B85-42C5-A3DF-4A0C9CFF2F99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1F8D56F-0B85-42C5-A3DF-4A0C9CFF2F99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1F8D56F-0B85-42C5-A3DF-4A0C9CFF2F99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1F8D56F-0B85-42C5-A3DF-4A0C9CFF2F99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5519BF9A-B7CF-4DE7-B9E1-EB938AA84471}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5519BF9A-B7CF-4DE7-B9E1-EB938AA84471}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5519BF9A-B7CF-4DE7-B9E1-EB938AA84471}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5519BF9A-B7CF-4DE7-B9E1-EB938AA84471}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E44C4AD-BAB0-4FDD-A14C-2298ACB8D07B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E44C4AD-BAB0-4FDD-A14C-2298ACB8D07B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E44C4AD-BAB0-4FDD-A14C-2298ACB8D07B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E44C4AD-BAB0-4FDD-A14C-2298ACB8D07B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D648E66-9A8D-4BAF-AFAF-9744B96AE331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D648E66-9A8D-4BAF-AFAF-9744B96AE331}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D648E66-9A8D-4BAF-AFAF-9744B96AE331}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D648E66-9A8D-4BAF-AFAF-9744B96AE331}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9CC15EE-DC87-4627-AF15-5ADC6C35E340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9CC15EE-DC87-4627-AF15-5ADC6C35E340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9CC15EE-DC87-4627-AF15-5ADC6C35E340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9CC15EE-DC87-4627-AF15-5ADC6C35E340}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1F8D56F-0B85-42C5-A3DF-4A0C9CFF2F99} = {F5E7C2A2-D05A-4DAF-A4D8-EB14C793FD5A}
+		{5519BF9A-B7CF-4DE7-B9E1-EB938AA84471} = {1A45FD52-7965-425B-A96F-76EDB00E53F5}
+		{8E44C4AD-BAB0-4FDD-A14C-2298ACB8D07B} = {5F9124E0-8682-4224-A3BC-5FDDA24BD8D1}
+		{3D648E66-9A8D-4BAF-AFAF-9744B96AE331} = {C442B34B-F813-419A-8D6C-B6EFA5264FA8}
+		{B9CC15EE-DC87-4627-AF15-5ADC6C35E340} = {F20CCC7E-F718-49AE-A3E2-8A62C5C4C727}
+	EndGlobalSection
+EndGlobal
