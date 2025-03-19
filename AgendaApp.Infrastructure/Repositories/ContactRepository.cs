@@ -50,7 +50,8 @@ namespace AgendaApp.Infrastructure.Repositories
 
         public void UpdateContact(Contact contact)
         {
-            if (contact == null) throw new ArgumentNullException(nameof(contact));
+            if (contact == null)
+                throw new InvalidOperationException("Contact not found");
             db.Contacts.Update(contact);
             
         }

@@ -8,8 +8,11 @@ namespace AgendaApp.Domain.Entities
         public string? Name { get; protected set; }
         public string? Email { get; protected set; }
         public string? Phone { get; protected set; }
-       
 
+        public Contact(string name, string email, string phone)
+        {
+            ValidateDomain(name, email, phone);
+        } 
         public Contact() { }
 
         [JsonConstructor]

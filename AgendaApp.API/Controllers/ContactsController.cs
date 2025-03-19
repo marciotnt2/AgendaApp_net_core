@@ -1,7 +1,12 @@
-﻿using AgendaApp.Domain.Abstractions;
+﻿using AgendaApp.Application.Contacts.Commands;
+using AgendaApp.Application.Contacts.Queries;
+using AgendaApp.Domain.Abstractions;
 using AgendaApp.Domain.Entities;
+using MediatR;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace AgendaApp.API.Controllers
 {
@@ -9,70 +14,52 @@ namespace AgendaApp.API.Controllers
     [ApiController]
     public class ContactsController : ControllerBase
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMediator _mediator;
 
-        public ContactsController(IUnitOfWork unitOfWork)
+        public ContactsController(IMediator mediator, IUnitOfWork unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+            _mediator = mediator;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetContacts()
         {
-            var contacts = await _unitOfWork.ContactRepository.GetContacts();
+            var query = new GetContactsQuery();
+            var contacts = await _mediator.Send(query);
             return Ok(contacts);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetContact(int id)
         {
-            var contact = await _unitOfWork.ContactRepository.GetContactById(id);
-            if (contact == null)
-            {
-                return NotFound("contact not found.");
-            }
-            return Ok(contact);
+            var query = new GetContactByIdQuery { Id = id };
+            var contact = await _mediator.Send(query);
+            return contact != null ? Ok(contact) : NotFound("Contact not found.");
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateContact(int id, Contact contact)
+        public async Task<IActionResult> UpdateContact(int id, UpdateContactCommand command)
         {
-            var existingContact = await _unitOfWork.ContactRepository.GetContactById(id);
-            if (existingContact == null || contact == null)
-            {
-                return NotFound("contact not found.");
-            }
+            command.Id = id;
+            var updatedContact = await _mediator.Send(command);
 
-            existingContact.Update(name: contact.Name, contact.Email, contact.Phone);
-            _unitOfWork.ContactRepository.UpdateContact(existingContact);
-            await _unitOfWork.CommitAsync();
-            return Ok();
+            return updatedContact != null ? Ok(updatedContact) : NotFound("Contact not found.");
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateContact(Contact contact)
+        public async Task<IActionResult> CreateContact(CreateContactCommand comand)
         {
-           
-            if (contact == null)
-            {
-                return NotFound("contact not found.");
-            }
-            var contactCreated = await _unitOfWork.ContactRepository.AddContact(contact);
-            await _unitOfWork.CommitAsync();
-            return CreatedAtAction(nameof(GetContact), new { id = contactCreated.Id }, contactCreated);
+            var createdcontact = await _mediator.Send(comand);
+            return CreatedAtAction(nameof(GetContact), new { id = createdcontact.Id }, createdcontact);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteContacts(int id)
         {
-            var deletedContact = await _unitOfWork.ContactRepository.DeleteContact(id);
+            var command = new DeleteContactCommand { Id = id };
+            var deletedContact = await _mediator.Send(command);
 
-            if(deletedContact == null)
-            {
-                return NotFound("contact not found.");
-            }
-            await _unitOfWork.CommitAsync();
-            return Ok(deletedContact);
+            return deletedContact != null ? Ok(deletedContact) : NotFound("Contact not found.");
         }
     }
 }
