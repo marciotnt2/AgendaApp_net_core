@@ -25,5 +25,11 @@ namespace AgendaApp.Infrastructure.Repositories
             string query = "SELECT * FROM Contacts";
             return await _dbConnection.QueryAsync<Contact>(query);
         }
+
+        public async Task<IEnumerable<Contact>> GetContactByEmail(string email)
+        {
+            string query = "SELECT * FROM Contacts WHERE email = @email";
+            return await _dbConnection.QueryAsync<Contact>(query);
+        }
     }
 }

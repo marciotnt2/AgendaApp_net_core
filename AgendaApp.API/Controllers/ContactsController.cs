@@ -1,12 +1,9 @@
 ﻿using AgendaApp.Application.Contacts.Commands;
 using AgendaApp.Application.Contacts.Queries;
 using AgendaApp.Domain.Abstractions;
-using AgendaApp.Domain.Entities;
 using MediatR;
-using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+
 
 namespace AgendaApp.API.Controllers
 {
